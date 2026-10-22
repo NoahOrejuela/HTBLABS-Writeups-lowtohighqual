@@ -1,6 +1,6 @@
 # Kerberoasting involved, query AD, get hash, and crack it.
 ### difficulty rating: Easy
-### personal raating: Falling Asleep Over Here
+### personal rating: Falling Asleep Over Here
 
 ## Using nmap:
 for this windows box we want to use nmap for Enum.
