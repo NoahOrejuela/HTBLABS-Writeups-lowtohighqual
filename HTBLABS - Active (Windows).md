@@ -10,35 +10,35 @@ Starting Nmap 7.99 ( https://nmap.org ) at 2026-10-06 13:01 -0400
 Nmap scan report for 10.129.79.197
 Host is up (0.078s latency).
 Not shown: 975 filtered tcp ports (no-response)
-PORT      STATE  SERVICE       VERSION
-21/tcp    closed ftp
-22/tcp    closed ssh
-23/tcp    closed telnet
-25/tcp    closed smtp
-53/tcp    open   domain        Microsoft DNS 6.1.7601 (1DB15D39) (Windows Server 2008 R2 SP1) 
-| dns-nsid: 
-|_  bind.version: Microsoft DNS 6.1.7601 (1DB15D39)
-88/tcp    open   kerberos-sec  Microsoft Windows Kerberos (server time: 2026-10-06 17:01:42Z)
-113/tcp   closed ident
-135/tcp   open   msrpc         Microsoft Windows RPC
-139/tcp   open   netbios-ssn   Microsoft Windows netbios-ssn
-199/tcp   closed smux
-389/tcp   open   ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
-445/tcp   open   microsoft-ds?
-464/tcp   open   kpasswd5?
-587/tcp   closed submission
-593/tcp   open   ncacn_http    Microsoft Windows RPC over HTTP 1.0
-636/tcp   open   tcpwrapped
-3268/tcp  open   ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
-3269/tcp  open   tcpwrapped
-5900/tcp  closed vnc
-49152/tcp open   msrpc         Microsoft Windows RPC
-49153/tcp open   msrpc         Microsoft Windows RPC
-49154/tcp open   msrpc         Microsoft Windows RPC
-49155/tcp open   msrpc         Microsoft Windows RPC
-49157/tcp open   ncacn_http    Microsoft Windows RPC over HTTP 1.0
-49158/tcp open   msrpc         Microsoft Windows RPC
-Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008:r2:sp1, cpe:/o:microsoft:windows
+- PORT      STATE  SERVICE       VERSION
+- 21/tcp    closed ftp
+- 22/tcp    closed ssh
+- 23/tcp    closed telnet
+- 25/tcp    closed smtp
+- 53/tcp    open   domain        Microsoft DNS 6.1.7601 (1DB15D39) (Windows Server 2008 R2 SP1) 
+- | dns-nsid: 
+- |_  bind.version: Microsoft DNS 6.1.7601 (1DB15D39)
+- 88/tcp    open   kerberos-sec  Microsoft Windows Kerberos (server time: 2026-10-06 17:01:42Z)
+- 113/tcp   closed ident
+- 135/tcp   open   msrpc         Microsoft Windows RPC
+- 139/tcp   open   netbios-ssn   Microsoft Windows netbios-ssn
+- 199/tcp   closed smux
+- 389/tcp   open   ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
+- 445/tcp   open   microsoft-ds?
+- 464/tcp   open   kpasswd5?
+- 587/tcp   closed submission
+- 593/tcp   open   ncacn_http    Microsoft Windows RPC over HTTP 1.0
+- 636/tcp   open   tcpwrapped
+- 3268/tcp  open   ldap          Microsoft Windows Active Directory LDAP (Domain: active.htb, Site: Default-First-Site-Name)
+- 3269/tcp  open   tcpwrapped
+- 5900/tcp  closed vnc
+- 49152/tcp open   msrpc         Microsoft Windows RPC
+- 49153/tcp open   msrpc         Microsoft Windows RPC
+- 49154/tcp open   msrpc         Microsoft Windows RPC
+- 49155/tcp open   msrpc         Microsoft Windows RPC
+- 49157/tcp open   ncacn_http    Microsoft Windows RPC over HTTP 1.0
+- 49158/tcp open   msrpc         Microsoft Windows RPC
+- Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008:r2:sp1, cpe:/o:microsoft:windows
 
 _Host script results:_
 | smb2-time: 
@@ -65,18 +65,18 @@ and get the domain name back as "active.htb", shocker
 using command "locate -r '\.nse$' | xargs grep categories | grep 'default\|version\|safe' | grep smb
 ## we are left with these nmap scripts:
 
-/usr/share/nmap/scripts/smb-double-pulsar-backdoor.nse:categories = {"vuln", "safe", "malware"}
-/usr/share/nmap/scripts/smb-enum-services.nse:categories = {"discovery","intrusive","safe"}
-/usr/share/nmap/scripts/smb-ls.nse:categories = {"discovery", "safe"}
-/usr/share/nmap/scripts/smb-mbenum.nse:categories = {"discovery", "safe"}
-/usr/share/nmap/scripts/smb-os-discovery.nse:categories = {"default", "discovery", "safe"}
-/usr/share/nmap/scripts/smb-protocols.nse:categories = {"safe", "discovery"}
-/usr/share/nmap/scripts/smb-security-mode.nse:categories = {"default", "discovery", "safe"}
-/usr/share/nmap/scripts/smb-vuln-ms17-010.nse:categories = {"vuln", "safe"}
-/usr/share/nmap/scripts/smb2-capabilities.nse:categories = {"safe", "discovery"}
-/usr/share/nmap/scripts/smb2-security-mode.nse:categories = {"safe", "discovery", "default"}
-/usr/share/nmap/scripts/smb2-time.nse:categories = {"discovery", "safe", "default"}
-/usr/share/nmap/scripts/smb2-vuln-uptime.nse:categories = {"vuln", "safe"}
+- /usr/share/nmap/scripts/smb-double-pulsar-backdoor.nse:categories = {"vuln", "safe", "malware"}
+- /usr/share/nmap/scripts/smb-enum-services.nse:categories = {"discovery","intrusive","safe"}
+- /usr/share/nmap/scripts/smb-ls.nse:categories = {"discovery", "safe"}
+- /usr/share/nmap/scripts/smb-mbenum.nse:categories = {"discovery", "safe"}
+- /usr/share/nmap/scripts/smb-os-discovery.nse:categories = {"default", "discovery", "safe"}
+- /usr/share/nmap/scripts/smb-protocols.nse:categories = {"safe", "discovery"}
+- /usr/share/nmap/scripts/smb-security-mode.nse:categories = {"default", "discovery", "safe"}
+- /usr/share/nmap/scripts/smb-vuln-ms17-010.nse:categories = {"vuln", "safe"}
+- /usr/share/nmap/scripts/smb2-capabilities.nse:categories = {"safe", "discovery"}
+- /usr/share/nmap/scripts/smb2-security-mode.nse:categories = {"safe", "discovery", "default"}
+- /usr/share/nmap/scripts/smb2-time.nse:categories = {"discovery", "safe", "default"}
+- /usr/share/nmap/scripts/smb2-vuln-uptime.nse:categories = {"vuln", "safe"}
 
 
 ## we now use this nmap command:
