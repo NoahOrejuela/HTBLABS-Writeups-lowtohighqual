@@ -16,14 +16,8 @@ PORT      STATE  SERVICE       VERSION
 23/tcp    closed telnet
 25/tcp    closed smtp
 53/tcp    open   domain        Microsoft DNS 6.1.7601 (1DB15D39) (Windows Server 2008 R2 SP1) 
-
-## _this is our target /\_
-
 | dns-nsid: 
 |_  bind.version: Microsoft DNS 6.1.7601 (1DB15D39)
-
-# this is our target /\
-
 88/tcp    open   kerberos-sec  Microsoft Windows Kerberos (server time: 2026-10-06 17:01:42Z)
 113/tcp   closed ident
 135/tcp   open   msrpc         Microsoft Windows RPC
